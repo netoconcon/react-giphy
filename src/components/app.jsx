@@ -4,23 +4,30 @@ import Gif from './gif.jsx';
 import GifList from './gif_list.jsx';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      gifs: [],
+      selectedGifId: "l0HlNbeDtLwwkBUiI"
+    }
+  }
+
+  search = (query) => {
+
+  }
+
   render() {
-
-    const gifs = [
-      { id: 'l0HlNbeDtLwwkBUiI' },
-      { id: '3ohzdIrmkBViO8uouc' }
-    ];
-
     return(
       <div>
         <div className="left-scene">
           <SearchBar />
           <div className="selected-gif">
-            <Gif id="l0HlNbeDtLwwkBUiI" />
+            <Gif id={this.state.selectedGifId} />
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifs={gifs}/>
+          <GifList gifs={this.state.gifs}/>
         </div>
       </div>
       )
